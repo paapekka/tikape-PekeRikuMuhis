@@ -16,17 +16,18 @@ public class Drinkki {
     private String tekotapa;
     private String lasi;
     private String ajankohta;
-    private String ohje;
-    
-    public Drinkki(String nimi, Integer id, double vahvuus, String tekotapa, String lasi,String ohje, String ajankohta) {
+
+    public Drinkki(Integer id,String nimi, double vahvuus, String tekotapa, String lasi, String ajankohta) {
         this.nimi = nimi;
         this.id = id;
         this.vahvuus = vahvuus;
         this.tekotapa = tekotapa;
         this.lasi = lasi;
         this.ajankohta = ajankohta;
-        this.ohje=ohje;
     }
+
+    
+
 
     public String getNimi() {
         return nimi;
@@ -76,11 +77,5 @@ public class Drinkki {
         this.ajankohta = ajankohta;
     }
     
-     public String getOhje() {
-        return ohje;
-    }
-
-    public void setOhje(String ohje) {
-        this.ohje = ohje;
-    }
+    
 }

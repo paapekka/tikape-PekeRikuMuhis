@@ -14,12 +14,14 @@ public class DrinkkiAines {
     private Integer drinkki_id; 
     private Integer ainesosa_id;
     private Integer maara;
-
-    public DrinkkiAines(Integer id, Integer maara,Integer drinkki_id, Integer ainesosa_id) {
+    private String ohje;
+    
+    public DrinkkiAines(Integer id, Integer maara,Integer drinkki_id, Integer ainesosa_id,String ohje) {
         this.id=id;
         this.maara = maara;
         this.drinkki_id=drinkki_id;
         this.ainesosa_id= ainesosa_id;
+        this.ohje=ohje;
     }
 
     public Integer getId() {
@@ -55,6 +57,14 @@ public class DrinkkiAines {
 
     public void setMaara(Integer maara) {
         this.maara = maara;
+    }
+
+    public String getOhje() {
+        return ohje;
+    }
+
+    public void setOhje(String ohje) {
+        this.ohje = ohje;
     }
     
 }

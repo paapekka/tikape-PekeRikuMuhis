@@ -43,9 +43,8 @@ public class DrinkkiDao implements Dao<Drinkki, Integer> {
         Double vahvuus = rs.getDouble("vahvuus");
         String lasi = rs.getString("lasi");
         String ajankohta = rs.getString("ajankohta");
-        String ohje = rs.getString("ohje");
 
-        Drinkki o = new Drinkki(nimi, id, vahvuus, tekotapa, lasi, ohje, ajankohta);
+        Drinkki o = new Drinkki(id,nimi, vahvuus, tekotapa, lasi, ajankohta);
 
         rs.close();
         stmt.close();
@@ -69,9 +68,8 @@ public class DrinkkiDao implements Dao<Drinkki, Integer> {
             Double vahvuus = rs.getDouble("vahvuus");
             String lasi = rs.getString("lasi");
             String ajankohta = rs.getString("ajankohta");
-            String ohje = rs.getString("ohje");
 
-            drinkit.add(new Drinkki(nimi, id, vahvuus, tekotapa, lasi,ohje, ajankohta));
+            drinkit.add(new Drinkki(id,nimi, vahvuus, tekotapa, lasi, ajankohta));
         }
 
         rs.close();
@@ -86,21 +84,44 @@ public class DrinkkiDao implements Dao<Drinkki, Integer> {
         System.out.println("Älä tee sitä");
     }
 
-    public void lisaaDrinkki(Drinkki drinkki) throws SQLException {
+    public void MuokkaaTaiLisaaDrinkki(Drinkki drinkki) throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Drinkki (nimi, tekotapa, vahvuus, lasi, ohje, ajankohta) values (?, ?, ?, ?, ?, ?, ?)");
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Drinkki (nimi, tekotapa, vahvuus, lasi, ajankohta) values (?, ?, ?, ?, ?, ?)");
 
         stmt.setString(1, drinkki.getNimi());
         stmt.setString(2, drinkki.getTekotapa());
         stmt.setDouble(3, drinkki.getVahvuus());
         stmt.setString(4, drinkki.getLasi());
-        stmt.setString(5, drinkki.getOhje());
-        stmt.setString(6, drinkki.getAjankohta());
+        stmt.setString(5, drinkki.getAjankohta());
         stmt.executeUpdate();
 
         stmt.close();
         connection.close();
 
     }
+    
+    public void nimeaDrinkki(String drinkki, Double vahvuus, String lasi) throws SQLException {
+        Connection connection = database.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Drinkki (nimi, tekotapa, vahvuus, lasi, ajankohta) values (?, ?, ?, ?, ?)");
+        String tekotapa = "";
+        String ajankohta= "";
+        
+        stmt.setString(1, drinkki);
+        stmt.setString(2, tekotapa);
+        stmt.setDouble(3, vahvuus);
+        stmt.setString(4, lasi);
+        stmt.setString(5, ajankohta);
+
+        stmt.executeUpdate();
+        
+
+        stmt.close();
+        
+        
+        connection.close();
+    }
+    
+    
+   
 
 }

@@ -28,42 +28,24 @@ public class DrinkkiAinesDao implements Dao<DrinkkiAines,Integer> {
     @Override
     public DrinkkiAines findOne(Integer key) throws SQLException {
     
-    return null;
+        throw new UnsupportedOperationException("Not supported yet.");
         
     }
 
     @Override
     public List<DrinkkiAines> findAll() throws SQLException {
 
-        Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Drinkki");
+        throw new UnsupportedOperationException("Not supported yet.");
 
-        ResultSet rs = stmt.executeQuery();
-        List<DrinkkiAines> drinkit = new ArrayList<>();
-        while (rs.next()) {
-            Integer id = rs.getInt("id");
-            String nimi = rs.getString("nimi");
-            String tekotapa = rs.getString("tekotapa");
-            Double vahvuus = rs.getDouble("vahvuus");
-            String lasi = rs.getString("lasi");
-            String ajankohta = rs.getString("ajankohta");
-            drinkit.add(new Drinkki(nimi, id, vahvuus, tekotapa, lasi, ajankohta));
-        }
-
-        rs.close();
-        stmt.close();
-        connection.close();
-
-        return drinkit;
-    }
+        }   
 
     @Override
     public void delete(Integer key) throws SQLException {
-        System.out.println("Älä tee sitä");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
-   /* 
-    public void lisaaDrinkki(DrinkkiAines drinkkiaines) throws SQLException {
+   
+    public void muokkaaTaiLisaa (DrinkkiAines drinkkiaines) throws SQLException {
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("INSERT INTO Drinkki (ohje, maara, drinkki_id, aines_id) values (?, ?, ?, ?)");
         
@@ -76,7 +58,7 @@ public class DrinkkiAinesDao implements Dao<DrinkkiAines,Integer> {
         stmt.close();
         connection.close();
 
-    }*/
+    }
     
     
     

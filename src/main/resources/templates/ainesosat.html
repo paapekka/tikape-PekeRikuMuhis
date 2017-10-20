@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Ainesosat</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1>Aineosat</h1>
+        <ol>
+            <li th:each="ainesosa: ${ainesosat}">
+                <span th:text="${ainesosa.nimi}">ainesosan nimi</span>
+            </li>
+            <p></p>
+            <form method="POST" action="/ainesosat">
+                Ainesosan nimi:<br/>
+                <input type="text" name="ainesosa"/><br/>
+                <input type="submit" value="Lisaa ainesosat"/>
+            </form>
+            
+            
+        </ol>
+
+    </body>
+</html>

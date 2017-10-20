@@ -78,11 +78,11 @@ public class AinesosaDao implements Dao<Ainesosa, Integer>{
     }
     
     
-    public void lisaaAinesosa(Ainesosa ainesosa) throws SQLException {
+    public void lisaaAinesosa(String ainesosa) throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Drinkki (nimi) values (?)");
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Ainesosa (nimi) values (?)");
         
-        stmt.setString(1, ainesosa.getNimi());
+        stmt.setString(1, ainesosa);
         stmt.executeUpdate();
         
         stmt.close();

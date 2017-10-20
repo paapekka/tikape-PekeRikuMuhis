@@ -1,0 +1,57 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Drinkit</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1>Drinkit</h1>
+        <ol>
+            <li th:each="drinkki: ${drinkit}">
+                <span th:text="${drinkki.nimi}">drinkin nimi</span>
+            </li>
+            <h2>Uusi drinkki</h2>
+            <p></p>
+            <form method="POST" action="/drinkit">
+                Drinkin nimi:<br/>
+                <input type="text" name="drinkki"/><br/>   
+                <p></p>           
+            	Vahvuus:<br/>
+                <input type="text" name="vahvuus"/><br/>
+                <p></p>
+                Lasi:<br/>
+                <input type="text" name="lasi"/><br/>
+                <p></p>
+                <input type="submit" value="Luo drinkkipohja"/>
+                
+            </form>
+            <h2>Drinkin ainesosat</h2>
+            <p></p>
+            <p>Drinkin nimi:</p>
+            <select name="drinkit">
+                        <option th:each="drinkki: ${drinkit}" th:value="${drinkki.id}" th:text="${drinkki.nimi}">
+                            drinkki
+                        </option>
+                    </select>
+            
+            
+            
+            <p>Tarvitsen seuraavaa ainesosaa:</p>
+            
+             <select name="ainesosat">
+                        <option th:each="ainesosa: ${ainesosat}" th:value="${ainesosa.id}" th:text="${ainesosa.nimi}">
+                            ainesosa
+                        </option>
+                    </select>
+            <p>Kuinka paljon:</p>
+            <input type="text" name="maara"/><br/>
+            <p>Ohje:</p>
+            <input type="text" name="ohje"/><br/>
+            <p></p>
+            <input type="submit" value="Tallenna"/>
+        </ol>
+            
+    </body>
+</html>
