@@ -102,14 +102,13 @@ public class DrinkkiDao implements Dao<Drinkki, Integer> {
     
     public void nimeaDrinkki(String drinkki, Double vahvuus, String lasi) throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Drinkki (nimi, tekotapa, vahvuus, lasi, ajankohta) values (?, ?, ?, ?, ?)");
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Drinkki (nimi,vahvuus,lasi, tekotapa,ajankohta) values (?, ?, ?, ?, ?)");
         String tekotapa = "";
         String ajankohta= "";
-        
         stmt.setString(1, drinkki);
-        stmt.setString(2, tekotapa);
-        stmt.setDouble(3, vahvuus);
-        stmt.setString(4, lasi);
+        stmt.setDouble(2, vahvuus);
+        stmt.setString(3, lasi);
+        stmt.setString(4, tekotapa);
         stmt.setString(5, ajankohta);
 
         stmt.executeUpdate();

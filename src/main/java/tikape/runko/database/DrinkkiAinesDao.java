@@ -59,6 +59,37 @@ public class DrinkkiAinesDao implements Dao<DrinkkiAines,Integer> {
         connection.close();
 
     }
+
+    public void tallennaID(Integer drinkkiId, Integer ainesId) throws SQLException {
+        Connection connection = database.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO DrinkkiAines (drinkki_id, ainesosa_id, maara, ohje) values (?, ?, ?, ?)");
+        
+        String ohje = "";
+        Integer maara= 0;
+        
+        stmt.setInt(1,drinkkiId);
+        stmt.setInt(2,ainesId);
+        stmt.setInt(3, maara);
+        stmt.setString(4, ohje);
+        
+        stmt.executeUpdate();
+        stmt.close();
+        connection.close();
+    }
+
+    public void tallennaMuut(Integer drinkkiId, Integer ainesId, Integer maara, String ohje) throws SQLException {
+       Connection connection = database.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("UPDATE DrinkkiAines set maara = ?, ohje = ? WHERE drinkki_id = ? and ainesosa_id = ?");
+
+        stmt.setInt(1, maara);
+        stmt.setString(2, ohje);
+        stmt.setInt(3,drinkkiId);
+        stmt.setInt(4,ainesId);
+        
+        stmt.executeUpdate();
+        stmt.close();
+        connection.close();
+    }
     
     
     

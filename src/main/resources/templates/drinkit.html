@@ -17,7 +17,7 @@
             <form method="POST" action="/drinkit">
                 Drinkin nimi:<br/>
                 <input type="text" name="drinkki"/><br/>   
-                <p></p>           
+                <p>(Ilman pilkkua)</p>           
             	Vahvuus:<br/>
                 <input type="text" name="vahvuus"/><br/>
                 <p></p>
@@ -46,11 +46,20 @@
                         </option>
                     </select>
             <p>Kuinka paljon:</p>
+            <form method="POST" action="/drinkit">
             <input type="text" name="maara"/><br/>
             <p>Ohje:</p>
             <input type="text" name="ohje"/><br/>
             <p></p>
+            <form th:action="@{~/tasks/{id}(id=${task.id})}" method="post">
+                    <select name="userId">
+                        <option th:each="user: ${users}" th:value="${user.id}" th:text="${user.name}">
+                            user
+                        </option>
+                    </select>
+            
             <input type="submit" value="Tallenna"/>
+            </form>
         </ol>
             
     </body>
