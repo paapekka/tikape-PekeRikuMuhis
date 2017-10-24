@@ -84,7 +84,7 @@ public class Main {
             return "";
         });
 
-        Spark.post("/drinkit/:id", (req, res) -> {
+        Spark.post("/drinkit", (req, res) -> {
             Integer drinkkiId = Integer.parseInt(req.params(":id"));
             Integer ainesId = Integer.parseInt(req.queryParams("userId"));
 
