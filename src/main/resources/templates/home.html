@@ -10,7 +10,9 @@
         <h1>Drinkkiarkisto</h1>
         <ol>
             <li th:each="drinkki: ${drinkit}">
-                <span th:text="${drinkki.nimi}">drinkin nimi</span>
+                <a th:href="@{~/drinkit{id}(id=${drinkki.id})}">
+                    <span th:text="${drinkki.nimi}">drinkin nimi</span>
+                </a>    
             </li>
 
 
