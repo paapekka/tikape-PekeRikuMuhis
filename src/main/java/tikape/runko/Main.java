@@ -102,8 +102,9 @@ public class Main {
         Spark.get("/home", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("drinkit", drinkkiDao.findAll());
+            map.put("ainesosat", ainesosaDao.findAll());
 
-            return new ModelAndView(map, "drinkit");
+            return new ModelAndView(map, "home");
         }, new ThymeleafTemplateEngine());
 
         /*Spark.get("/users/:id", (req, res) -> {
