@@ -10,8 +10,13 @@
         <h1>Drinkit</h1>
 
         <li th:each="drinkki: ${drinkit}">
-            <span th:text="${drinkki.nimi}">drinkin nimi</span>
+            
+            <span th:text="${drinkki.nimi}">drinkin nimi</span>            
         </li>
+        <form method="POST" action="/drinkit">
+            <input type="radio" name="poisto" value="1"/>
+            <input type="submit" value="Poista"/>
+        </form>
         <h2>Uusi drinkki</h2>
         <p></p>
         <form method="POST" action="/drinkit">
@@ -24,7 +29,8 @@
             Lasi:<br/>
             <input type="text" name="lasi"/><br/>
             <p></p>
-            <input type="submit" value="Luo drinkkipohja"/>
+            <input type="submit" value="Luo drinkkipohja"/>&nbsp;&nbsp;<input type="reset" value="Tyhjenna"/>
+            
 
         </form>
         <h2>Drinkin ainesosat</h2>
@@ -51,7 +57,7 @@
             <p>Ohje:</p>
             <input type="text" name="ohje"/><br/>
             <p></p>
-            <input type="submit" value="Tallenna"/>
+            <input type="submit" value="Tallenna"/>&nbsp;&nbsp;<input type="reset" value="Tyhjenna"/>
         </form>
 
 

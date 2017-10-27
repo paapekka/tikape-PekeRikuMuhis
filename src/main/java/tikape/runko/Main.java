@@ -1,6 +1,7 @@
 package tikape.runko;
 
 import java.util.HashMap;
+import javax.management.Query;
 import spark.ModelAndView;
 import spark.Spark;
 import static spark.Spark.*;
@@ -83,7 +84,18 @@ public class Main {
 
             return "";
         });
+        
+        Spark.post("/drinkit", (req, res) -> {
+            
+            Integer poisto=Integer.parseInt(req.queryParams("poisto"));
+            
 
+            drinkkiDao.delete(poisto);
+
+            res.redirect("/drinkit");
+            return "";
+        });
+        
         Spark.post("/drinkit", (req, res) -> {
             Integer drinkkiId = Integer.parseInt(req.params(":id"));
             Integer ainesId = Integer.parseInt(req.queryParams("userId"));

@@ -81,6 +81,14 @@ public class DrinkkiDao implements Dao<Drinkki, Integer> {
 
     @Override
     public void delete(Integer key) throws SQLException {
+        Connection conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM Drinkki WHERE id = ?");
+        
+        stmt.setInt(1, key);
+        stmt.executeUpdate();
+
+        stmt.close();
+        conn.close();
         System.out.println("Älä tee sitä");
     }
 
